@@ -20,6 +20,8 @@ import (
 	"runtime"
 	"strings"
 
+	"arrow/soong/android"
+
 	"github.com/google/blueprint/proptools"
 )
 
@@ -152,6 +154,9 @@ type variableProperties struct {
 		Device_support_hwfde_perf struct {
 			Cflags []string
 		}
+
+		// include Arrow variables
+		Arrow android.Product_variables
 	} `android:"arch_variant"`
 }
 
@@ -319,6 +324,8 @@ type productVariables struct {
 	ProductHiddenAPIStubsTest   []string `json:",omitempty"`
 
 	TargetFSConfigGen []string `json:",omitempty"`
+	// include Arrow variables
+	Arrow android.ProductVariables
 }
 
 func boolPtr(v bool) *bool {
